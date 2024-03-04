@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница курса</title>
+    <!-- Подключение файлов Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключение ваших статических файлов (если есть) -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <!-- Подключение библиотеки Chart.js для круговой диаграммы -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Сеть кофеен "Coffee Hub"</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Главная</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Курсы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Вход/Регистрация</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Курс "Искусство приготовления американо"</h1>
+            <p class="lead">Описание курса: Научитесь готовить великолепный американо - классический напиток из свежесваренного эспрессо, разбавленного горячей водой. В этом курсе вы узнаете все секреты приготовления и настройки оборудования для создания идеального напитка, который покорит сердца вашей аудитории.</p>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary mb-3">Приступить к прохождению курса</button>
+            </div>
+            <div class="col-md-6">
+                <h2>Прогресс лекций</h2>
+                <canvas id="lectureProgressChart" width="400" height="400"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h2>Прогресс тестов</h2>
+                <canvas id="testProgressChart" width="400" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Данные для прогресса лекций (в процентах)
+        var lectureProgressData = {
+            labels: ['Пройдено', 'Осталось'],
+            datasets: [{
+                data: [60, 40],
+                backgroundColor: ['#36A2EB', '#FF6384'],
+                hoverBackgroundColor: ['#36A2EB', '#FF6384']
+            }]
+        };
+
+        // Данные для прогресса тестов (в процентах)
+        var testProgressData = {
+            labels: ['Пройдено', 'Осталось'],
+            datasets: [{
+                data: [40, 60],
+                backgroundColor: ['#36A2EB', '#FF6384'],
+                hoverBackgroundColor: ['#36A2EB', '#FF6384']
+            }]
+        };
+
+        // Конфигурация круговой диаграммы для прогресса лекций
+        var lectureProgressConfig = {
+            type: 'doughnut',
+            data: lectureProgressData,
+            options: {
+                cutoutPercentage: 70, // Отступ для текста в центре
+                legend: {
+                    display: false
+                }
+            }
+        };
+
+        // Создание круговой диаграммы для прогресса лекций
+        var lectureProgressChart = new Chart(document.getElementById('lectureProgressChart'), lectureProgressConfig);
+
+        // Конфигурация круговой диаграммы для прогресса тестов
+        var testProgressConfig = {
+            type: 'doughnut',
+            data: testProgressData,
+            options: {
+                cutoutPercentage: 70, // Отступ для текста в центре
+                legend: {
+                    display: false
+                }
+            }
+        };
+
+        // Создание круговой диаграммы для прогресса тестов
+        var testProgressChart = new Chart(document.getElementById('testProgressChart'), testProgressConfig);
+    </script>
+
+    <!-- Подключение jQuery (необходим для Bootstrap JavaScript) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Подключение файлов Bootstrap JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
