@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Страница курса</title>
+    <title>{{ course.title }}</title>
     <!-- Подключение файлов Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Подключение ваших статических файлов (если есть) -->
@@ -37,15 +37,20 @@
 
     <div class="container mt-5">
         <div class="jumbotron">
-            <h1 class="display-4">Название курса</h1>
-            <p class="lead">Краткое описание курса. Здесь можно описать основные моменты и преимущества курса.</p>
+            <h1 class="display-4">{{ course.title }}</h1>
+            <p class="lead">{{ course.description }}</p>
         </div>
     </div>
 
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                <button class="btn btn-primary mb-3">Приступить к прохождению курса</button>
+                {% if user_completed_course %}
+                    <p>Вы уже завершили этот курс!</p>
+                    <p>Ваш прогресс: {{ user_course_progress }}%</p>
+                {% else %}
+                    <button class="btn btn-primary mb-3">Приступить к прохождению курса</button>
+                {% endif %}
             </div>
             <div class="col-md-6">
                 <h2>Прогресс лекций</h2>
@@ -63,7 +68,7 @@
         var lectureProgressData = {
             labels: ['Пройдено', 'Осталось'],
             datasets: [{
-                data: [60, 40],
+                data: [{{ lecture_progress }}, {{ lecture_progress }}],
                 backgroundColor: ['#36A2EB', '#FF6384'],
                 hoverBackgroundColor: ['#36A2EB', '#FF6384']
             }]
@@ -73,7 +78,7 @@
         var testProgressData = {
             labels: ['Пройдено', 'Осталось'],
             datasets: [{
-                data: [40, 60],
+                data: [{{ test_progress }}, {{ test_progress }}]  ,
                 backgroundColor: ['#36A2EB', '#FF6384'],
                 hoverBackgroundColor: ['#36A2EB', '#FF6384']
             }]

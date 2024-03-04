@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ lecture.title }}</title>
+</head>
+<body>
+    <h1>{{ lecture.title }}</h1>
+    <p>{{ lecture.description }}</p>
+    <p>Video URL: <a href="{{ lecture.video_url }}">{{ lecture.video_url }}</a></p>
+    <p>Materials: <a href="{{ lecture.materials.url }}">{{ lecture.materials.name }}</a></p>
+</body>
+</html>
