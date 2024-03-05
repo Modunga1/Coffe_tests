@@ -41,11 +41,11 @@
     </div>
 
     <div class="container mt-5">
-        <h2>Доступные курсы</h2>
-        <div class="row">
-            <div class="col-md-4">
+        <h2 class="text-center">Доступные курсы</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-3">
                 <div class="card mb-4 shadow-sm">
-                    <img src="{% static 'img/course1.jpg' %}" class="card-img-top" alt="Курс 1">
+                    <img src="/media/americano.jpg" class="card-img-top" alt="Курс 1">
                     <div class="card-body">
                         <h5 class="card-title"><a href="{% url 'course_detail' course_id=1 %}">Искусство Приготовления Американо: От Основ до Совершенства</a></h5>
                         <p class="card-text">Описание курса 1. Поможет вам освоить искусство приготовления этого классического кофейного напитка.</p>
@@ -58,9 +58,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card mb-4 shadow-sm">
-                    <img src="{% static 'img/course1.jpg' %}" class="card-img-top" alt="Курс 2">
+                    <img src="/media/capp.jpeg" class="card-img-top" alt="Курс 2">
                     <div class="card-body">
                         <h5 class="card-title"><a href="{% url 'course_detail' course_id=2 %}">Курс по приготовлению капучино</a></h5>
                         <p class="card-text">Описание курса 2. Представит уникальные знания об истории и культуре капучино.</p>
@@ -73,9 +73,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card mb-4 shadow-sm">
-                    <img src="{% static 'img/course1.jpg' %}" class="card-img-top" alt="Курс 3">
+                    <img src="/media/latte_art.jpg" class="card-img-top" alt="Курс 3" >
                     <div class="card-body">
                         <h5 class="card-title"><a href="{% url 'course_detail' course_id=3 %}">Мастерство латте-арт</a></h5>
                         <p class="card-text">Погрузитесь в мир искусства создания кофейных произведений с помощью курса по латте-арту, где вы научитесь придавать вашему кофе не только отличный вкус, но и неповторимый внешний вид.</p>
@@ -88,7 +88,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Добавьте еще две карточки курсов по аналогии -->
         </div>
     </div>
 
