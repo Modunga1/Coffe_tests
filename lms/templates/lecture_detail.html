@@ -2,11 +2,33 @@
 <html>
 <head>
     <title>{{ lecture.title }}</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>{{ lecture.title }}</h1>
-    <p>{{ lecture.description }}</p>
-    <p>Video URL: <a href="{{ lecture.video_url }}">{{ lecture.video_url }}</a></p>
-    <p>Materials: <a href="{{ lecture.materials.url }}">{{ lecture.materials.name }}</a></p>
+    <div class="container mt-5">
+        <h1>{{ lecture.title }}</h1>
+        <p>{{ lecture.description }}</p>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Видео лекции</h2>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="{{ lecture.video_url }}" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h2>Материалы лекции</h2>
+                <p><a href="{{ lecture.materials.url }}">{{ lecture.materials.name }}</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение Bootstrap JavaScript и jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
