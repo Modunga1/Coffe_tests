@@ -13,10 +13,5 @@
 
 - Фронтенд: HTML, CSS, JavaScript, Bootstrap
 - Бэкенд: Python, Django
-- База данных: PostgreSQL
-
-## Установка и запуск
-
-1. Установите Python и PostgreSQL, если они еще не установлены.
-2. Склонируйте репозиторий с GitHub:
+- База данных: SQLite
 
